@@ -23,3 +23,12 @@ puts "Total Count: #{Element.count}"
 # Can access individual element attributes by @name.attribute
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
+
+
+# 12.times { print "-" }
+# puts
+# puts "|" + "#{@sulfur.number}".ljust(10) + "|"
+# puts "|" + "#{@sulfur.symbol}".ljust(10) + "|"
+# puts "|" + "#{@sulfur.name}".ljust(10) + "|"
+# puts "|" + "#{@sulfur.atomic_mass}".ljust(10) + "|"
+# 12.times { print "-" }

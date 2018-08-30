@@ -36,11 +36,19 @@ class Element
     end
   end
 
+  # Makes a box to display element details
+  def element_box_string
+    box = "-" * 14
+    box += "\n|" + "#{@number}".ljust(12) + "|"
+    box += "\n|" + "#{@symbol}".ljust(12) + "|"
+    box += "\n|" + "#{@name}".ljust(12) + "|"
+    box += "\n|" + "#{@atomic_mass}".ljust(12) + "|\n"
+    box += "-" * 14
+  end
+
   # Prints out attributes of each element
   def print_element
-    print "Name: #{@name.capitalize} | "
-    print "Automic Weight: #{rounded_weight} | "
-    print "Atomic Number: #{@number}\n"
+    puts element_box_string
   end
 
   # Instance method of each
