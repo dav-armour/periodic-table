@@ -1,16 +1,14 @@
 # Defining a new class called element
 class Element
-  # Creates Getter / Setter for each attribute
-  attr_accessor :name, :atomic_weight, :atomic_number
-
-  # Instance method that gets run when a new element is created
-  def initialize name, atomic_weight, atomic_number
-    # Assign instance variables using passed in 
-    @name = name
-    @atomic_weight = atomic_weight
-    @atomic_number = atomic_number
-    # put self into elements array
-    Element.all.push self
+  def initialize prop_hash
+    prop_hash.each do |key,value|
+      instance_variable_set("@#{key}", value)
+      # Creates Getter for each attribute
+      self.class.define_method key do
+        instance_variable_get("@#{key}")
+      end
+    end
+    self.class.all << self
   end
 
   # class instance variable to store all elements
@@ -39,12 +37,12 @@ class Element
   def print_element
     print "Name: #{@name.capitalize} | "
     print "Automic Weight: #{rounded_weight} | "
-    print "Atomic Number: #{@atomic_number}\n"
+    print "Atomic Number: #{@number}\n"
   end
 
   # Instance method of each
   def rounded_weight
-    @atomic_weight.round
+    @atomic_mass.round
   end
 
 end
