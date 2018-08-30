@@ -1,11 +1,14 @@
 # Defining a new class called element
 class Element
+
   def initialize prop_hash
     prop_hash.each do |key,value|
       instance_variable_set("@#{key}", value)
       # Creates Getter for each attribute
-      self.class.define_method key do
-        instance_variable_get("@#{key}")
+      if self.class.count == 0
+        self.class.define_method key do
+          instance_variable_get("@#{key}")
+        end
       end
     end
     self.class.all << self
