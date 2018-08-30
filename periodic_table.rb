@@ -28,3 +28,22 @@
 #################################################################### (ノ^_^)ノ┻━┻ ┬─┬ ノ( ^_^ノ)
 
 ### YOUR CODE HERE:
+#imports code from element file so we can use here
+#relative to current directory
+require_relative "models/element"
+
+#creates a new element with attributes (in brackets) and stores them in a variable
+carbon = Element.new("carbon", 12.011, 6)
+hydrogen = Element.new("hydrogen", 1.008, 1)
+oxygen = Element.new("oxygen", 15.999, 8)
+
+# Finds print_all Element class method and runs it
+Element.print_all
+
+# puts carbon
+# carbon.print_element
+# Element.print
+# puts Element.all
+# puts Element.count
+# puts carbon.rounded_weight
+
