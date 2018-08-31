@@ -24,12 +24,12 @@ puts "Total Count: #{Element.count}"
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
 
-$foo = @carbon.name
+$foo = @carbon.element_box_string
 
 require 'gosu'
 
 class Window < Gosu::Window
- def initialize(width=320, height=240, fullscreen=false)
+ def initialize(width=640, height=480, fullscreen=false)
    super
    self.caption = 'Test'
    @message = Gosu::Image.from_text(
