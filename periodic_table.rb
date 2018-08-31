@@ -24,7 +24,7 @@ puts "Total Count: #{Element.count}"
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
 
-test = @carbon.name
+$foo = @carbon.name
 
 require 'gosu'
 
@@ -33,7 +33,7 @@ class Window < Gosu::Window
    super
    self.caption = 'Test'
    @message = Gosu::Image.from_text(
-     self, test, Gosu.default_font_name, 50)
+     self, $foo, Gosu.default_font_name, 50)
  end
 
  def draw
