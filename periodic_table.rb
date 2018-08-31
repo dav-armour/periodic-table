@@ -3,6 +3,8 @@ require 'json'
 
 # Element model class file
 require_relative 'models/element'
+# Gosu class file
+require_relative 'models/gosu_window'
 
 # Read json file
 file = File.read('elements.json')
@@ -24,22 +26,6 @@ puts "Total Count: #{Element.count}"
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
 
-$foo = @carbon.element_box_string
-
-require 'gosu'
-
-class Window < Gosu::Window
- def initialize(width=640, height=480, fullscreen=false)
-   super
-   self.caption = 'Test'
-   @message = Gosu::Image.from_text(
-     self, $foo, Gosu.default_font_name, 50)
- end
-
- def draw
-   @message.draw(20, 20, 0)
- end
-end
-
- window = Window.new
+#
+ window = Window.new(Element.element_hashes)
  window.show

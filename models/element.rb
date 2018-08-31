@@ -12,14 +12,20 @@ class Element
       end
     end
     self.class.all << self
+    self.class.element_hashes << self.element_hash
   end
 
   # class instance variable to store all elements
   @elements = []
+  @element_hashes = []
 
   # Returns array of all elements
   def self.all
     @elements
+  end
+
+  def self.element_hashes
+    @element_hashes
   end
 
   # Returns number of element instances. counts the array...
@@ -34,6 +40,13 @@ class Element
       # calls print instance method on each element
       e.print_element
     end
+  end
+
+  # Returns hash of element attribute string and position in table
+  def element_hash
+    # Construct string with basic element attributes
+    string = "#{@number}\n#{@symbol}\n#{@name}\n#{rounded_weight}\n"
+    { string: string, xpos: @xpos, ypos: @ypos }
   end
 
   # Makes a box to display element details
@@ -53,7 +66,7 @@ class Element
 
   # Instance method of each
   def rounded_weight
-    @atomic_mass.round
+    @atomic_mass.round(4)
   end
 
 end
