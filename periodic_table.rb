@@ -1,5 +1,7 @@
 # Run 'gem install json'
 require 'json'
+# Run 'gem install gosu'
+require 'gosu'
 
 # Element model class file
 require_relative 'models/element'
@@ -26,6 +28,6 @@ puts "Total Count: #{Element.count}"
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
 
-#
+# Display periodic table in new window (using gosu)
  window = Window.new(Element.element_hashes)
  window.show
