@@ -24,11 +24,22 @@ puts "Total Count: #{Element.count}"
 puts "Nitrogen Boil: #{@nitrogen.boil}"
 puts "Sulfur Melt: #{@sulfur.melt}"
 
+test = @carbon.name
 
-# 12.times { print "-" }
-# puts
-# puts "|" + "#{@sulfur.number}".ljust(10) + "|"
-# puts "|" + "#{@sulfur.symbol}".ljust(10) + "|"
-# puts "|" + "#{@sulfur.name}".ljust(10) + "|"
-# puts "|" + "#{@sulfur.atomic_mass}".ljust(10) + "|"
-# 12.times { print "-" }
+require 'gosu'
+
+class Window < Gosu::Window
+ def initialize(width=320, height=240, fullscreen=false)
+   super
+   self.caption = 'Test'
+   @message = Gosu::Image.from_text(
+     self, test, Gosu.default_font_name, 50)
+ end
+
+ def draw
+   @message.draw(20, 20, 0)
+ end
+end
+
+ window = Window.new
+ window.show
